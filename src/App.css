@@ -19,6 +19,7 @@ body {
   height: 100%;
   min-height: 100vh;
   background-color: #f0f0f0;
+  transition: background-color 0.3s ease;
 }
 
 h1 {
@@ -46,16 +47,20 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 button:hover {
   background-color: #45a049;
+  transform: scale(1.05);
 }
 
 ul {
   list-style-type: none;
   padding: 0;
   width: 300px;
+  margin: 0 auto;
+  transition: all 0.3s ease;
 }
 
 li {
@@ -66,6 +71,11 @@ li {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+li:hover {
+  background-color: #e0e0e0;
 }
 
 li button {

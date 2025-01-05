@@ -1,30 +1,49 @@
 import React, { useState } from 'react';
+import { TextField, Button, Box } from '@mui/material';
+import { keyframes } from "@emotion/react";
+import styled from '@emotion/styled';
+
+// Animación de entrada para el formulario
+const fadeIn = keyframes`
+    0% { opacity: 0; transform: translateY(-20px); }
+    100% { opacity; 1; transform: translateY(0); }
+`;
+
+const AnimatedBox = styled(Box)`
+    animation: ${fadeIn} 0.3s ease-in-out;
+`;
 
 interface TodoFormProps {
     onAddTodo: (text: string) => void;
 }
 
 const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
-    const [input, setInput] = useState('');
+    const [todoText, setTodoText] = useState("");
 
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
-        if (input.trim() !== '') {
-            onAddTodo(input);
-            setInput('');
+        if (todoText.trim()) {
+            onAddTodo(todoText);
+            setTodoText("");
         }
     };
 
     return (
-        <form onSubmit={handleSubmit}>
-            <input
-                type="text"
-                value={input}
-                onChange={(e) => setInput(e.target.value)}
-                placeholder="Add a new task"
-            />
-            <button type="submit">Add</button>
-        </form>
+        <AnimatedBox>
+            <form onSubmit={handleSubmit}>
+                <TextField
+                    label="Nueva tarea"
+                    variant="outlined"
+                    value={todoText}
+                    onChange={(e) => setTodoText(e.target.value)}
+                    fullWidth
+                    required
+                />
+                <Button type="submit" variant="contained" color="primary" style={{ marginTop: '10px' }}>
+                    Agregar
+                </Button>
+            </form>
+        </AnimatedBox>
     );
 };
 

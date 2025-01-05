@@ -1,19 +1,16 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import './App.css';
 import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
+import { Container, Typography, Box } from '@mui/material';
 
 function App() {
-  const [todos, setTodos] = useState<string[]>([]);
-
-  // Cargar las tareas del localStorage cuando el componente se monta.
-  useEffect(() => {
+  const loadTodos = () => {
     const storedTodos = localStorage.getItem('todos');
-    if (storedTodos) {
-      setTodos(JSON.parse(storedTodos));
-    }
-  }, []); // Este efecto solo se ejecuta una vez, al cargar el componente.
+    return storedTodos ? JSON.parse(storedTodos) : [];
+  };
 
+  const [todos, setTodos] = useState<string[]>(loadTodos);
 
   // Función para agregar una tarea y actualizar localStorage.
   const addTodo = (text: string) => {
@@ -30,11 +27,13 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <h1>Todo App</h1>
+    <Container maxWidth="sm" className="App">
+      <Box textAlign="center" mb={4}>
+        <Typography variant="h3" color="primary">Todo App</Typography>
+      </Box>
       <TodoForm onAddTodo={addTodo} />
       <TodoList todos={todos} onDeleteTodo={deleteTodo} />
-    </div>
+    </Container>
   );
 }
 
