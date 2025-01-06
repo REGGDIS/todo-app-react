@@ -37,7 +37,14 @@ interface TodoListProps {
 const TodoList: React.FC<TodoListProps> = ({ todos, onDeleteTodo, onToggleTodo }) => {
     return (
         <Box>
-            <List>
+            <List
+                style={{
+                    margin: '0 auto',
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                }}
+            >
                 {todos.map((todo, index) => (
                     <AnimatedListItem
                         key={index}
@@ -65,9 +72,8 @@ const TodoList: React.FC<TodoListProps> = ({ todos, onDeleteTodo, onToggleTodo }
                             color={todo.completed ? 'secondary' : 'primary'}
                             onClick={() => onToggleTodo(index)}
                             style={{
-                                whiteSpace: 'normal',
-                                textAlign: 'center',
-                                padding: '8px 10px',    
+                                whiteSpace: 'nowrap',
+                                minWidth: '250px',    
                             }}
                         >
                             {todo.completed ? 'Desmarcar' : 'Marcar como completada'}
