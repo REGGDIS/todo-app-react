@@ -1,5 +1,5 @@
 import React from "react";
-import { List, ListItem, ListItemText, IconButton, Box } from "@mui/material";
+import { List, ListItem, ListItemText, IconButton, Box, Button } from "@mui/material";
 import DeleteIcon from '@mui/icons-material/Delete';
 import { keyframes } from "@emotion/react";
 import styled from "@emotion/styled";
@@ -23,21 +23,55 @@ const AnimatedListItem = styled(ListItem)`
     }
 `;
 
-interface TodoListProps {
-    todos: string[];
-    onDeleteTodo: (index: number) => void;
+interface Todo {
+    text: string;
+    completed: boolean;
 }
 
-const TodoList: React.FC<TodoListProps> = ({ todos, onDeleteTodo }) => {
+interface TodoListProps {
+    todos: Todo[];
+    onDeleteTodo: (index: number) => void;
+    onToggleTodo: (index: number) => void;
+}
+
+const TodoList: React.FC<TodoListProps> = ({ todos, onDeleteTodo, onToggleTodo }) => {
     return (
         <Box>
             <List>
                 {todos.map((todo, index) => (
-                    <AnimatedListItem key={index} divider>
-                        <ListItemText primary={todo} />
+                    <AnimatedListItem
+                        key={index}
+                        divider
+                        style={{
+                            display: 'grid',
+                            gridTemplateColumns: '2fr 1fr 1fr',
+                            alignItems: 'center',
+                            gap: '10px'
+                        }}
+                    >
+                        <ListItemText
+                            primary={todo.text}
+                            style={{
+                                textDecoration: todo.completed ? 'line-through' : 'none',
+                                color: todo.completed ? 'gray' : 'black',
+                                textAlign: 'left',
+                            }}
+                        />
                         <IconButton edge="end" color="secondary" onClick={() => onDeleteTodo(index)}>
                             <DeleteIcon />
                         </IconButton>
+                        <Button
+                            variant="outlined"
+                            color={todo.completed ? 'secondary' : 'primary'}
+                            onClick={() => onToggleTodo(index)}
+                            style={{
+                                whiteSpace: 'normal',
+                                textAlign: 'center',
+                                padding: '8px 10px',    
+                            }}
+                        >
+                            {todo.completed ? 'Desmarcar' : 'Marcar como completada'}
+                        </Button>
                     </AnimatedListItem>
                 ))}
             </List>
