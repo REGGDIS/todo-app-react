@@ -1,0 +1,29 @@
+/* src/global.css */
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Arial", sans-serif;
+  background-color: #f0f0f0;
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.MuiButton-root {
+  white-space: nowrap;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.MuiButton-root:hover {
+  transform: scale(1.05);
+}
+
+ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0 auto;
+  max-width: 700px;
+}
