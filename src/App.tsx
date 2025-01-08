@@ -4,6 +4,7 @@ import TodoForm from './components/TodoForm';
 import TodoList from './components/TodoList';
 
 interface Todo {
+  id: number;
   text: string;
   completed: boolean;
 }
@@ -23,18 +24,17 @@ function App() {
     localStorage.setItem('todos', JSON.stringify(todos));
   }, [todos]);
 
-  const addTodo = (text: string) => {
-    const newTodo = { text, completed: false };
-    setTodos([...todos, newTodo]);
+  const addTodo = (todo: { id: number; text: string; completed: boolean }) => {
+    setTodos([...todos, todo]);
   };
 
-  const deleteTodo = (index: number) => {
-    setTodos(todos.filter((_, i) => i !== index));
+  const deleteTodo = (id: number) => {
+    setTodos(todos.filter(todo => todo.id !== id));
   };
 
-  const toggleTodo = (index: number) => {
-    const updatedTodos = todos.map((todo, i) =>
-      i === index ? { ...todo, completed: !todo.completed } : todo
+  const toggleTodo = (id: number) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id ? { ...todo, completed: !todo.completed } : todo
     );
     setTodos(updatedTodos);
   };

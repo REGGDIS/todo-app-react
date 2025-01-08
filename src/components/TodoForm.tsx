@@ -14,7 +14,7 @@ const AnimatedBox = styled(Box)`
 `;
 
 interface TodoFormProps {
-    onAddTodo: (text: string) => void;
+    onAddTodo: (todo: { id: number, text: string, completed: boolean }) => void;
 }
 
 const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
@@ -23,7 +23,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         if (todoText.trim()) {
-            onAddTodo(todoText);
+            onAddTodo({ id: Date.now(), text: todoText, completed: false });
             setTodoText("");
         }
     };
