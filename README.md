@@ -3,7 +3,7 @@
 ¡Bienvenido a Todo App React! Una aplicación sencilla para gestionar tus tareas diarias, desarrollada con **React**, **TypeScript**, y **Vite**, y desplegada en **Vercel**.
 
 ## 🚀 Demo en vivo
-Puedes ver la aplicación en acción aquí: [Todo App React](https://vercel.com/reggdis-projects/todo-app-react)
+Puedes ver la aplicación en acción aquí: [Todo App React](https://todo-app-react-kappa-smoky.vercel.app/)
 
 ## 📋 Características
 - Crear tareas
