@@ -33,6 +33,7 @@ const TodoForm: React.FC<TodoFormProps> = ({ onAddTodo }) => {
             <form onSubmit={handleSubmit}>
                 <TextField
                     label="Nueva tarea"
+                    placeholder="Añadir tarea"
                     variant="outlined"
                     value={todoText}
                     onChange={(e) => setTodoText(e.target.value)}

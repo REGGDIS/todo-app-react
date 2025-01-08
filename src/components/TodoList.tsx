@@ -3,14 +3,15 @@ import { List, Box } from "@mui/material";
 import TodoItem from "./TodoItem";
 
 interface Todo {
+    id: number;
     text: string;
     completed: boolean;
 }
 
 interface TodoListProps {
     todos: Todo[];
-    onDeleteTodo: (index: number) => void;
-    onToggleTodo: (index: number) => void;
+    onDeleteTodo: (id: number) => void;
+    onToggleTodo: (id: number) => void;
 }
 
 const TodoList: React.FC<TodoListProps> = ({ todos, onDeleteTodo, onToggleTodo }) => {
@@ -24,13 +25,13 @@ const TodoList: React.FC<TodoListProps> = ({ todos, onDeleteTodo, onToggleTodo }
                     alignItems: 'center',
                 }}
             >
-                {todos.map((todo, index) => (
+                {todos.map((todo) => (
                     <TodoItem
-                        key={index}
+                        key={todo.id}
                         text={todo.text}
                         completed={todo.completed}
-                        onDelete={() => onDeleteTodo(index)}
-                        onToggle={() => onToggleTodo(index)}
+                        onDelete={() => onDeleteTodo(todo.id)}
+                        onToggle={() => onToggleTodo(todo.id)}
                     />
                 ))}
             </List>
