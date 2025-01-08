@@ -3,6 +3,7 @@
 ¡Bienvenido a Todo App React! Una aplicación sencilla para gestionar tus tareas diarias, desarrollada con **React**, **TypeScript**, y **Vite**, y desplegada en **Vercel**.
 
 ## 🚀 Demo en vivo
+<<<<<<< HEAD
 
 Puedes ver la aplicación en acción aquí: [Todo App React](https://todo-app-react-kappa-smoky.vercel.app/)
 
@@ -48,6 +49,47 @@ Configura el comando de build (npm run build) y la carpeta de salida (dist).
 
 ¡Las contribuciones son bienvenidas! Por favor, sigue estos pasos:
 
+=======
+Puedes ver la aplicación en acción aquí: [Todo App React](https://todo-app-react-kappa-smoky.vercel.app/)
+
+## 📋 Características
+- Crear tareas
+- Eliminar tareas
+- Marcar tareas como completadas o pendientes
+- Filtrar tareas por "Todas", "Pendientes" o "Completadas"
+- Persistencia de datos en el navegador (localStorage)
+
+## 🛠️ Tecnologías utilizadas
+- **React** y **TypeScript** para el desarrollo front-end.
+- **Material UI (MUI)** para el diseño y la interfaz de usuario.
+- **Vite** como herramienta de construcción.
+- Desplegado en **Vercel**.
+
+## ⚙️ Instalación y configuración
+
+1. Clona este repositorio:
+   ```bash
+   git clone https://github.com/tu-usuario/todo-app-react.git
+2. Navega al directorio del proyecto:
+   cd todo-app-react
+3. Instala las dependencias:
+   npm install
+4. Ejecuta la aplicación en modo desarrollo:
+   npm run dev
+5. Abre http://localhost:5173 en tu navegador para ver la aplicación.
+
+## 🚢 Desplegar
+Para desplegar la aplicación en Vercel, sigue estos pasos:
+
+Inicia sesión en Vercel.
+Conecta tu repositorio de GitHub.
+Configura el comando de build (npm run build) y la carpeta de salida (dist).
+¡Haz clic en "Deploy" y listo!
+
+## 🤝 Contribuir
+¡Las contribuciones son bienvenidas! Por favor, sigue estos pasos:
+
+>>>>>>> 0d0e1d428ceae6abaea7fe60b879abe627e82bcc
 1. Haz un fork del repositorio.
 2. Crea una rama para tu funcionalidad o corrección de errores:
    git checkout -b mi-nueva-funcionalidad
@@ -58,7 +100,11 @@ Configura el comando de build (npm run build) y la carpeta de salida (dist).
 5. Crea un pull request en este repositorio.
 
 ## 📝 Licencia
+<<<<<<< HEAD
 
 Este proyecto está licenciado bajo la [MIT License](./LICENSE).
+=======
+Este proyecto está licenciado bajo la MIT License.
+>>>>>>> 0d0e1d428ceae6abaea7fe60b879abe627e82bcc
 
 ## ¡Gracias por usar Todo App React! 🎉
